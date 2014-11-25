@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.Timer;
 public class tutorial extends JPanel implements ActionListener, KeyListener {
 						
-	Timer tm = new Timer(1000,this);
+	Timer tm = new Timer(4000,this);
 	static JLabel label;				
 	
 	int x = 0, y = 540, velX = 0, velY = 0;
@@ -66,6 +66,15 @@ public class tutorial extends JPanel implements ActionListener, KeyListener {
 			repaint();
 		}
 	}
+	public int score(){
+		if(x>=(xRandom[8]*60-30) && (x<=((xRandom[8]+1)*60))){
+			return 1;		
+		}
+		else{
+			return 0;
+		}
+			
+	}
 	public void actionPerformed(ActionEvent e){
 			Random rgen = new Random();  
 			randomPosition = rgen.nextInt(5);
@@ -77,6 +86,15 @@ public class tutorial extends JPanel implements ActionListener, KeyListener {
 			colorRandom1[0] = rgen.nextInt(7);
 			xRandom[0] = randomPosition;
 			repaint();		
+			int check = score();
+			if(check==1){
+				count=count+1;
+				System.out.println(""+ count);
+			}
+			else{
+				count=count;
+				System.out.println(""+ count);
+			}
 	}
 	
 	
